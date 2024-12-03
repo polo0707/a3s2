@@ -11,6 +11,9 @@
 # recipe for anything other than initial testing/development!
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
+inherit update-rc.d
+INITSCRIPT_NAME="esme-led"
+INITSCRIPT_PARAMS="defaults"
 
 # No information for SRC_URI yet (only an external source tree was specified)
 SRC_URI = ""
@@ -32,6 +35,8 @@ do_compile () {
 
 do_install () {
 	# This is a guess; additional arguments may be required
-	oe_runmake install
+	oe_runmake install INSTALL_DIR=${D}
 }
+
+
 
